@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Home from './components/Home'
+import Random from './components/Random';
+import Tailwind from './components/Tailwind'
+import ZustandBasics from './components/ZustandBasics';
+import Navigation from './components/Navigation';
 import './App.css';
 
+
 function App() {
+  const [nav, setNav] = useState('home');
+  const pages = [
+    { name: 'Home', active: nav === 'home' },
+    { name: 'Random', active: nav === 'random' },
+    { name: 'Tailwind', active: nav === 'tailwind' },
+    { name: 'Zustand', active: nav === 'zustand' },
+  ]
+  const handleClick = (nav: string) => setNav(nav.toLowerCase());
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation pages={pages} handleClick={handleClick} />
+      {nav === 'home' && <Home />}
+      {nav === 'random' && <Random />}
+      {nav === 'tailwind' && <Tailwind />}
+      {nav === 'zustand' && <ZustandBasics />}
     </div>
   );
 }

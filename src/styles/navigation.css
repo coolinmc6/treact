@@ -1,0 +1,7 @@
+.nav-link {
+  margin: 10px;
+  cursor: pointer;
+}
+.nav-link.active {
+  text-decoration: underline;
+}
