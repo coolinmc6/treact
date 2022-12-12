@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { useUserStore } from '../store/user';
+import { addBet } from '../store/bets';
+import { addItem, clearCart } from '../store/cart';
+import Bets from './zustand/Bets'
+import Cart from './zustand/Cart'
+import { generateId, generateMatchup, generateCartItem } from '../helpers/random';
+import '../styles/global.css';
 
 const ZustandBasics = () => {
   const { user } = useUserStore()
   const [newUser, setNewUser] = useState({ name: '', id: ''});
   
   const saveUser = () => {
-    const id = Math.random().toString(36).substring(2,9)
+    const id = generateId()
     if (!newUser.name.length) {
       setNewUser({ name: 'NO_NAME', id})
     }
@@ -16,12 +22,24 @@ const ZustandBasics = () => {
   }
 
   const randomId = useUserStore((state) => state.setRandomId)
-  
 
+  const saveBet = () => {
+    const bet = {
+      id: generateId(),
+      name: generateMatchup(),
+    }
+    addBet(bet)
+  }
+
+  // add random item to cart store
+  const saveItem = () => {
+    const item = generateCartItem()
+    addItem(item)
+  }
   
   return (
     <div>
-      <h1>Zustand Basics</h1>
+      <h1 className="text-3xl">Zustand Basics</h1>
       <p>
         <strong>Name: </strong>{user.name}<br />
         <strong>Id: </strong>{user.id}
@@ -48,6 +66,28 @@ const ZustandBasics = () => {
           Random Id
         </button>
       </p>
+      <p className="border-blue-200 border-2">
+        <button 
+        className="shadow-md p-4 rounded-lg bg-indigo-500 text-white m-2"
+        onClick={saveBet}>Save Bet</button>
+        <Bets />
+      </p>
+      <p className="border-blue-200 border-2">
+        <button 
+          className="shadow-md p-4 rounded-lg bg-indigo-500 text-white m-2"
+          onClick={saveItem}
+        >
+          Save Item
+        </button>
+        <button 
+          className="shadow-md p-4 rounded-lg bg-red-500 text-white m-2"
+          onClick={() => clearCart()}
+        >
+          Clear Cart
+        </button>
+        <Cart />
+      </p>
+      
     </div>
   )
 }

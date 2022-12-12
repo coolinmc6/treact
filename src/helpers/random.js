@@ -1,3 +1,86 @@
+export const generateId = () => {
+  return Math.random().toString(36).substr(2, 9);
+};
+
+export const generateMatchup = () => {
+  const nflTeams = [
+    "Arizona Cardinals",
+    "Atlanta Falcons",
+    "Baltimore Ravens",
+    "Buffalo Bills",
+    "Carolina Panthers",
+    "Chicago Bears",
+    "Cincinnati Bengals",
+    "Cleveland Browns",
+    "Dallas Cowboys",
+    "Denver Broncos",
+    "Detroit Lions",
+    "Green Bay Packers",
+    "Houston Texans",
+    "Indianapolis Colts",
+    "Jacksonville Jaguars",
+    "Kansas City Chiefs",
+    "Los Angeles Chargers",
+    "Los Angeles Rams",
+    "Miami Dolphins",
+    "Minnesota Vikings",
+    "New England Patriots",
+    "New Orleans Saints",
+    "New York Giants",
+    "New York Jets",
+    "Las Vegas Raiders",
+    "Philadelphia Eagles",
+    "Pittsburgh Steelers",
+    "San Francisco 49ers",
+    "Seattle Seahawks",
+    "Tampa Bay Buccaneers",
+    "Tennessee Titans",
+    "Washington Football Team"
+  ];
+
+  // return two random teams from the list that are not the same thing
+  const team1 = nflTeams[Math.floor(Math.random() * nflTeams.length)];
+  let team2 = nflTeams[Math.floor(Math.random() * nflTeams.length)];
+  while (team1 === team2) {
+    team2 = nflTeams[Math.floor(Math.random() * nflTeams.length)];
+  }
+
+  return `${team1} vs ${team2}`;
+}
+
+// Create a random shopping cart item that follows the CartItem type:
+// id: string
+// title: string
+// price: number
+// quantity: number
+
+export const generateCartItem = () => {
+  const titles = [
+    "Apple",
+    "Banana",
+    "Orange",
+    "Grapes",
+    "Strawberries",
+    "Blueberries",
+    "Raspberries",
+    "Pineapple",
+    "Watermelon",
+    "Mango",
+    "Kiwi",
+  ]
+
+  const title = titles[Math.floor(Math.random() * titles.length)];
+  const price = Math.floor(Math.random() * 100);
+  const quantity = Math.floor(Math.random() * 10);
+
+  return {
+    id: generateId(),
+    title,
+    price,
+    quantity,
+  }
+}
+
 
 class LinkedList {
   constructor() {
