@@ -16,7 +16,14 @@ const Navigation = ({ pages, handleClick }: NavigationProps) => {
   return (
     <div className="navigation">
       { pages.map((page) => {
-        return <span className={`nav-link p-2 inline-block border-4 rounded border-blue-200 ${page.active ? 'active' : ''}`} onClick={() => handleClick(page.name)} key={page.name}>{page.name}</span>
+        return (
+        <span className={`nav-link p-2 inline-block border-4 rounded border-blue-200 ${page.active ? 'active' : ''}`} 
+              onClick={() => handleClick(page.name)} 
+              key={page.name}
+        >
+          {page.name}
+        </span>
+      )
       })}
     </div>
   )

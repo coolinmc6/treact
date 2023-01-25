@@ -48,6 +48,24 @@ export const generateMatchup = () => {
   return `${team1} vs ${team2}`;
 }
 
+/**
+ * Logic Problem Answers
+ * @param {Array} variables array of objects with a name and an array of potential values
+ * @returns array of random combination of values
+ */
+export const generateRandomVariables = (variables) => {
+  const randomVariables = [];
+  variables.forEach((variable) => {
+    const randomIndex = Math.floor(Math.random() * variable.values.length);
+    randomVariables.push({
+      name: variable.name,
+      value: variable.values[randomIndex],
+    });
+  });
+  return randomVariables;
+};
+
+
 // Create a random shopping cart item that follows the CartItem type:
 // id: string
 // title: string
