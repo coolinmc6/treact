@@ -35,7 +35,7 @@ const Home = () => {
     setAccordions(newAccordions);
   }
 
-  const a = (accordion: string) => {
+  const getAccordion = (accordion: string) => {
     return accordions.filter(acc => acc.name === accordion)[0]
   }
   return (
@@ -46,12 +46,12 @@ const Home = () => {
         components like a madman!
       </p>
       <h2>Simple Components</h2>
-      <Accordion open={a('Typography').open} header="Typography" toggle={() => toggleAccordion('Typography')}>
+      <Accordion open={getAccordion('Typography').open} header="Typography" toggle={() => toggleAccordion('Typography')}>
         <Typography size="small">This is small text</Typography>
         <Typography size="medium">This is medium text</Typography>
         <Typography size="large">This is large text</Typography>
       </Accordion>
-      <Accordion open={a('Button').open} header="Buttons" toggle={() => toggleAccordion('Button')}>
+      <Accordion open={getAccordion('Button').open} header="Buttons" toggle={() => toggleAccordion('Button')}>
         <h4>Standard Buttons</h4>
         <Button variant="primary" loading={false} loadingText="Loading primary...">Primary</Button>
         <Button variant="secondary" loading={false}  loadingText="Loading secondary...">Secondary</Button>
