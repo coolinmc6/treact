@@ -1,0 +1,29 @@
+.swipeable-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.swipeable-item {
+  /* display: flex; */
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+.item {
+  text-align: center;
+}
+
+/* .item {
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+/* 
+.item {
+  flex: 1;
+  padding: 16px;
+  box-sizing: border-box;
+  width: calc(100% / 5);
+} */

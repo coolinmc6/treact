@@ -40,11 +40,11 @@ const ZustandBasics = () => {
   return (
     <div>
       <h1 className="text-3xl">Zustand Basics</h1>
-      <p>
+      <div>
         <strong>Name: </strong>{user.name}<br />
         <strong>Id: </strong>{user.id}
-      </p>
-      <p className="max-w-sm m-auto">
+      </div>
+      <div className="max-w-sm m-auto">
         <input 
           className="border-gray-200 ring-1 border-2 p-2 rounded-lg block w-full"
           type="text"
@@ -65,14 +65,14 @@ const ZustandBasics = () => {
           
           Random Id
         </button>
-      </p>
-      <p className="border-blue-200 border-2">
+      </div>
+      <div className="border-blue-200 border-2">
         <button 
         className="shadow-md p-4 rounded-lg bg-indigo-500 text-white m-2"
         onClick={saveBet}>Save Bet</button>
         <Bets />
-      </p>
-      <p className="border-blue-200 border-2">
+      </div>
+      <div className="border-blue-200 border-2">
         <button 
           className="shadow-md p-4 rounded-lg bg-indigo-500 text-white m-2"
           onClick={saveItem}
@@ -86,7 +86,7 @@ const ZustandBasics = () => {
           Clear Cart
         </button>
         <Cart />
-      </p>
+      </div>
       
     </div>
   )

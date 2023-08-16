@@ -4,11 +4,11 @@ import userEvent from '@testing-library/user-event';
 import Navigation from '../../components/Navigation';
 
 const pages = [
-  { name: 'Home', active: true, },
-  { name: 'Random', active: false, },
-  { name: 'SIC Fitness', active: false, },
-  { name: 'Tailwind', active: false, },
-  { name: 'Zustand', active: false, },
+  { name: 'Home', path: 'path' },
+  { name: 'Random', path: 'path', },
+  { name: 'SIC Fitness', path: 'path', },
+  { name: 'Tailwind', path: 'path', },
+  { name: 'Zustand', path: 'path', },
 ]
 
 const mockCallBack = jest.fn();

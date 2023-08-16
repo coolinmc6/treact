@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/navigation.css'
 import '../styles/tailwind.css';
 
 type NavigationLink = {
   name: string;
-  active: boolean;
+  path: string;
 }
 
 type NavigationProps = {
   pages: NavigationLink[];
-  handleClick: Function;
+  handleClick?: Function;
 }
 
 const Navigation = ({ pages, handleClick }: NavigationProps) => {
@@ -17,12 +18,12 @@ const Navigation = ({ pages, handleClick }: NavigationProps) => {
     <div className="navigation">
       { pages.map((page) => {
         return (
-        <span className={`nav-link p-2 inline-block border-4 rounded border-blue-200 ${page.active ? 'active' : ''}`} 
-              onClick={() => handleClick(page.name)} 
+        <Link className={`nav-link p-2 inline-block border-4 rounded border-blue-200`} 
+              to={page.path}
               key={page.name}
         >
           {page.name}
-        </span>
+        </Link>
       )
       })}
     </div>
